@@ -56,6 +56,13 @@ function openEndSurvey(studyID) {
     window.open(formLink, '_blank');
 }
 
+function openDemographicSurvey(studyID) {
+    let formLink = `https://docs.google.com/forms/d/e/1FAIpQLScKU9zi_yWUIFgnJ4enHCkjOLabCAI0r1ZJ86N-l_Kif1gAIA/viewform?usp=pp_url&entry.272674394=${studyID}`;
+    window.open(formLink, '_blank');
+    // Check the checkbox
+    document.getElementById('demographicSurvey').checked = true;
+}
+
 function generateList() {
     let seedInput = document.getElementById('seedInput');
     let seed = seedInput.value || Math.floor(Math.random() * 10000);
@@ -77,6 +84,16 @@ function generateList() {
     studyIdDiv.classList.add('mb-3');
     studyIdDiv.innerHTML = `<h4>Study ID: ${studyID}</h4>`;
     output.appendChild(studyIdDiv);
+
+    // Add Demographic Survey section at top
+    let demographicDiv = document.createElement('div');
+    demographicDiv.classList.add('mb-3');
+    demographicDiv.innerHTML = `
+        <h4>Demographic Survey</h4>
+        <input type="checkbox" id="demographicSurvey" disabled>
+        <button onclick="openDemographicSurvey(${studyID})">Take Survey</button>
+    `;
+    output.appendChild(demographicDiv);
 
     miniGames.forEach((game, i) => {
         let gameDiv = document.createElement('div');
