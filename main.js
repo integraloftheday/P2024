@@ -44,11 +44,16 @@ function openForm(studyID, game, modality, checkboxId) {
             formLink = `https://docs.google.com/forms/d/e/1FAIpQLScfT0Pz7JTW0moaG6v8Bhc5la2mqbjtcShtWbER8merJ3eWcA/viewform?usp=sf_link&entry.1549263789=${studyID}&entry.966537816=${modalityLetter}`;
             break;
     }
-    console.log(formLink);
+
     window.open(formLink, '_blank');
 
     // Check the checkbox
     document.getElementById(checkboxId).checked = true;
+}
+
+function openEndSurvey(studyID) {
+    let formLink = `https://docs.google.com/forms/d/e/1FAIpQLSf5djqeSqN9v2Djfa4Djx_KRibiPA1J462TtdU7Xcfwvps5qw/viewform?usp=pp_url&entry.655660568=${studyID}`;
+    window.open(formLink, '_blank');
 }
 
 function generateList() {
@@ -95,4 +100,13 @@ function generateList() {
 
         output.appendChild(gameDiv);
     });
+
+    // Add End Questions section
+    let endQuestionsDiv = document.createElement('div');
+    endQuestionsDiv.classList.add('mb-3');
+    endQuestionsDiv.innerHTML = `
+        <h4>End Questions</h4>
+        <button onclick="openEndSurvey(${studyID})">Take Survey</button>
+    `;
+    output.appendChild(endQuestionsDiv);
 }
