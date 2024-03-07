@@ -58,10 +58,11 @@ function generateList() {
 
     let random = new SeededRandom(seed);
 
-    let miniGames = ["miniGame 1 - Collaboration", "miniGame 2 - Presence", "miniGame 3 - Communication"];
+    let miniGames = ["miniGame 2 - Presence", "miniGame 1 - Collaboration", "miniGame 3 - Communication"];
+    //let miniGames = ["miniGame 2", "miniGame 1", "miniGame 3"];
     let modalities = ["Hands", "Device", "Controller"];
 
-    shuffleArray(miniGames, random);
+    //shuffleArray(miniGames, random);
 
     let output = document.getElementById('output');
     output.innerHTML = ''; // Clear the previous output

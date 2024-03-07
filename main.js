@@ -70,10 +70,10 @@ function generateList() {
 
     let random = new SeededRandom(seed);
 
-    let miniGames = ["miniGame 1", "miniGame 2", "miniGame 3"];
+    let miniGames = ["miniGame 2", "miniGame 1", "miniGame 3"];
     let modalities = ["B", "C", "A"];
 
-    shuffleArray(miniGames, random);
+    //shuffleArray(miniGames, random);
 
     let output = document.getElementById('output');
     output.innerHTML = ''; // Clear the previous output
